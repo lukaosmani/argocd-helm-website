@@ -15,9 +15,11 @@ spec:
       labels:
         app: {{ .name }}
     spec:
+      serviceAccountName: {{ $.Values.serviceAccount.name }}
       containers:
       - name: {{ .name }}
         image: {{ .image.repository }}:{{ .image.tag }}
+        imagePullPolicy: Always
         resources:
           limits:
             memory: {{ .resources.limits.memory }}
