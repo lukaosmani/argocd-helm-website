@@ -5,11 +5,11 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - list:
-      elements:
-        - cluster: in-cluster
-          url: https://kubernetes.default.svc
-          path: website/my-website-chart
+    - list:
+        elements:
+          - cluster: in-cluster
+            url: https://kubernetes.default.svc
+            path: my-website
   template:
     metadata:
       name: '{{name}}'
