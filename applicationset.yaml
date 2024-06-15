@@ -17,7 +17,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/lukaosmani/argocd-helm-website.git
-        targetRevision: master
+        targetRevision: main
         path: my-website
       destination:
         server: '{{cluster}}'
