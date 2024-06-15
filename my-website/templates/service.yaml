@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.blue.name }}-service
+  labels:
+    app: {{ .Values.blue.name }}
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ .Values.blue.name }}
+  ports:
+  - port: 80
+    targetPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.green.name }}-service
+  labels:
+    app: {{ .Values.green.name }}
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ .Values.green.name }}
+  ports:
+  - port: 80
+    targetPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.yellow.name }}-service
+  labels:
+    app: {{ .Values.yellow.name }}
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ .Values.yellow.name }}
+  ports:
+  - port: 80
+    targetPort: 80

@@ -1,0 +1,76 @@
+replicaCount: 2
+
+blue:
+  name: website-blue
+  image:
+    repository: lukaosmani/website-blue
+    tag: v1.0.0
+  resources:
+    limits:
+      memory: 128Mi
+      cpu: "1"
+    requests:
+      memory: 64Mi
+      cpu: "0.2"
+  service:
+    port: 80
+
+green:
+  name: website-green
+  image:
+    repository: lukaosmani/website-green
+    tag: v1.0.0
+  resources:
+    limits:
+      memory: 128Mi
+      cpu: "1"
+    requests:
+      memory: 64Mi
+      cpu: "0.2"
+  service:
+    port: 80
+
+yellow:
+  name: website-yellow
+  image:
+    repository: lukaosmani/website-yellow
+    tag: v1.0.0
+  resources:
+    limits:
+      memory: 128Mi
+      cpu: "1"
+    requests:
+      memory: 64Mi
+      cpu: "0.2"
+  service:
+    port: 80
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: blue.luka.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: green.luka.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: yellow.luka.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []

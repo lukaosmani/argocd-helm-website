@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.blue.name }}
+  labels:
+    app: {{ .Values.blue.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.blue.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.blue.name }}
+    spec:
+      containers:
+      - name: {{ .Values.blue.name }}
+        image: {{ .Values.blue.image.repository }}:{{ .Values.blue.image.tag }}
+        resources:
+          limits:
+            memory: {{ .Values.blue.resources.limits.memory }}
+            cpu: {{ .Values.blue.resources.limits.cpu }}
+          requests:
+            memory: {{ .Values.blue.resources.requests.memory }}
+            cpu: {{ .Values.blue.resources.requests.cpu }}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.green.name }}
+  labels:
+    app: {{ .Values.green.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.green.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.green.name }}
+    spec:
+      containers:
+      - name: {{ .Values.green.name }}
+        image: {{ .Values.green.image.repository }}:{{ .Values.green.image.tag }}
+        resources:
+          limits:
+            memory: {{ .Values.green.resources.limits.memory }}
+            cpu: {{ .Values.green.resources.limits.cpu }}
+          requests:
+            memory: {{ .Values.green.resources.requests.memory }}
+            cpu: {{ .Values.green.resources.requests.cpu }}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.yellow.name }}
+  labels:
+    app: {{ .Values.yellow.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.yellow.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.yellow.name }}
+    spec:
+      containers:
+      - name: {{ .Values.yellow.name }}
+        image: {{ .Values.yellow.image.repository }}:{{ .Values.yellow.image.tag }}
+        resources:
+          limits:
+            memory: {{ .Values.yellow.resources.limits.memory }}
+            cpu: {{ .Values.yellow.resources.limits.cpu }}
+          requests:
+            memory: {{ .Values.yellow.resources.requests.memory }}
+            cpu: {{ .Values.yellow.resources.requests.cpu }}
