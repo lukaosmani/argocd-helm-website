@@ -15,7 +15,6 @@ websites:
         cpu: "0.2"
     service:
       port: 80
-      containerPort: 8080
 
   green:
     name: website-green
@@ -31,7 +30,6 @@ websites:
         cpu: "0.2"
     service:
       port: 80
-      containerPort: 8081
 
   yellow:
     name: website-yellow
@@ -47,7 +45,8 @@ websites:
         cpu: "0.2"
     service:
       port: 80
-      containerPort: 8082
+
+deployTestConnection: false
 
 serviceAccount:
   create: true

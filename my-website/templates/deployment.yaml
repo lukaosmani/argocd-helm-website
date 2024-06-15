@@ -25,6 +25,4 @@ spec:
           requests:
             memory: {{ $value.resources.requests.memory }}
             cpu: {{ $value.resources.requests.cpu }}
-        ports:
-        - containerPort: {{ $value.service.containerPort }}
 {{- end }}
