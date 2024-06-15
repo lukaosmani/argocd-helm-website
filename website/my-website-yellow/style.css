@@ -1,0 +1,33 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header, section, footer {
+    padding: 20px;
+}
+
+header {
+    background: #f4f4f4;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li::before {
+    content: '✔️';
+    margin-right: 8px;
+}
+
+footer {
+    text-align: center;
+    background: #f4f4f4;
+}

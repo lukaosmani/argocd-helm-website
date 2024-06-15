@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: website-applicationset
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+        - cluster: in-cluster
+          url: https://kubernetes.default.svc
+          path: website/my-website-chart
+  template:
+    metadata:
+      name: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/lukaosmani/argocd-helm-website.git'
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: '{{url}}'
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

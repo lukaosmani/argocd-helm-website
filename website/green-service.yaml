@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: website-green-service
+spec:
+  type: ClusterIP
+  selector:
+    app: website-green
+  ports:
+  - port: 80
+    targetPort: 80

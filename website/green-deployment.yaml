@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: website-green
+  template:
+    metadata:
+      labels:
+        app: website-green
+    spec:
+      containers:
+      - name: website-green
+        image: lukaosmani/website-green:v1.0.0
+        resources:
+          limits:
+            memory: 128Mi
+            cpu: "1"
+          requests:
+            memory: 64Mi
+            cpu: "0.2"
