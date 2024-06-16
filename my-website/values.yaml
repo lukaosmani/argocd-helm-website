@@ -1,34 +1,31 @@
-websiteBlue:
-  image:
-    repository: lukaosmani/website-blue
-    tag: v1.0.0
-  service:
-    port: 80
-  containerPort: 8080
-
-websiteGreen:
-  image:
-    repository: lukaosmani/website-green
-    tag: v1.0.0
-  service:
-    port: 80
-  containerPort: 8081
-
-websiteYellow:
-  image:
-    repository: lukaosmani/website-yellow
-    tag: v1.0.0
-  service:
-    port: 80
-  containerPort: 8082
-
 ingress:
   enabled: true
   annotations: {}
   hosts:
     - host: chart-example.local
-      paths:
-        - path: /blue
-        - path: /green
-        - path: /yellow
+      paths: ["/"]
   tls: []
+
+websiteBlue:
+  replicaCount: 1
+  image:
+    repository: lukaosmani/website-blue
+    tag: v1.0.0
+  service:
+    port: 80
+
+websiteGreen:
+  replicaCount: 1
+  image:
+    repository: lukaosmani/website-green
+    tag: v1.0.0
+  service:
+    port: 80
+
+websiteYellow:
+  replicaCount: 1
+  image:
+    repository: lukaosmani/website-yellow
+    tag: v1.0.0
+  service:
+    port: 80
