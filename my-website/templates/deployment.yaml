@@ -16,21 +16,21 @@ spec:
         - name: website-blue
           image: "{{ .Values.websiteBlue.image.repository }}:{{ .Values.websiteBlue.image.tag }}"
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.websiteBlue.containerPort }}
           env:
             - name: PORT
-              value: "80"
+              value: "{{ .Values.websiteBlue.containerPort }}"
         - name: website-green
           image: "{{ .Values.websiteGreen.image.repository }}:{{ .Values.websiteGreen.image.tag }}"
           ports:
-            - containerPort: 8080
+            - containerPort: {{ .Values.websiteGreen.containerPort }}
           env:
             - name: PORT
-              value: "8080"
+              value: "{{ .Values.websiteGreen.containerPort }}"
         - name: website-yellow
           image: "{{ .Values.websiteYellow.image.repository }}:{{ .Values.websiteYellow.image.tag }}"
           ports:
-            - containerPort: 8081
+            - containerPort: {{ .Values.websiteYellow.containerPort }}
           env:
             - name: PORT
-              value: "8081"
+              value: "{{ .Values.websiteYellow.containerPort }}"

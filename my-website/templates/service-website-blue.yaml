@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 80
-      targetPort: 80
+    - port: {{ .Values.websiteBlue.service.port }}
+      targetPort: {{ .Values.websiteBlue.containerPort }}
   selector:
     app: my-website
