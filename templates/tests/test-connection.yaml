@@ -4,12 +4,13 @@ metadata:
   name: "{{ include "argocd-helm-website.fullname" . }}-test-connection"
   labels:
     {{- include "argocd-helm-website.labels" . | nindent 4 }}
-  annotations:
-    "helm.sh/hook": test
+    app.kubernetes.io/name: {{ include "argocd-helm-website.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['{{ include "argocd-helm-website.fullname" . }}:{{ .Values.service.port }}']
-  restartPolicy: Never
+  - name: wget
+    image: busybox
+    command: ['wget']
+    args: ['{{ include "argocd-helm-website.fullname" . }}:{{ .Values.service.port }}']
