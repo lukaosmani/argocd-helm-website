@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: my-website-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - chart: my-website
+            repoURL: 'https://lukaosmani.github.io/argocd-helm-website/helm-charts'
+            targetRevision: 0.1.0
+            values:
+              - name: websiteBlue
+                namespace: blue
+              - name: websiteGreen
+                namespace: green
+              - name: websiteYellow
+                namespace: yellow
+  template:
+    metadata:
+      name: '{{name}}-app'
+    spec:
+      project: my-project
+      source:
+        repoURL: '{{repoURL}}'
+        chart: '{{chart}}'
+        targetRevision: '{{targetRevision}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

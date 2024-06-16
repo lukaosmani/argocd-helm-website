@@ -13,3 +13,6 @@ spec:
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
+  namespaceResourceBlacklist:
+    - group: '*'
+      kind: ResourceQuota

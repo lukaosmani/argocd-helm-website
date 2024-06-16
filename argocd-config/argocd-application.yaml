@@ -6,9 +6,9 @@ metadata:
 spec:
   project: my-project
   source:
-    repoURL: 'https://github.com/lukaosmani/argocd-helm-website.git'
-    targetRevision: HEAD
-    path: my-website
+    repoURL: 'https://lukaosmani.github.io/argocd-helm-website/helm-charts'
+    chart: my-website
+    targetRevision: 0.1.0
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
