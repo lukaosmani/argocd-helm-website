@@ -17,7 +17,7 @@ spec:
       source:
         repoURL: 'https://github.com/lukaosmani/argocd-helm-website.git'
         targetRevision: HEAD
-        chart: '{{chart}}'
+        path: my-website
         helm:
           valueFiles:
             - values.yaml
