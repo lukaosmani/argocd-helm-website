@@ -1,3 +1,13 @@
+# values.yaml
+
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: ["/"]
+  tls: []
+
 websiteBlue:
   image:
     repository: lukaosmani/website-blue
