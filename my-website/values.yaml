@@ -1,10 +1,17 @@
 # values.yaml
 
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: ["/"]
+  tls: []
+
 serviceAccount:
   create: true
   name: ""
 
-# Define other components as well
 websiteBlue:
   replicaCount: 1
   image:
