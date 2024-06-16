@@ -1,3 +1,5 @@
+# values.yaml
+
 ingress:
   enabled: true
   annotations: {}
@@ -7,7 +9,6 @@ ingress:
   tls: []
 
 websiteBlue:
-  replicaCount: 1
   image:
     repository: lukaosmani/website-blue
     tag: v1.0.0
@@ -15,7 +16,6 @@ websiteBlue:
     port: 80
 
 websiteGreen:
-  replicaCount: 1
   image:
     repository: lukaosmani/website-green
     tag: v1.0.0
@@ -23,7 +23,6 @@ websiteGreen:
     port: 80
 
 websiteYellow:
-  replicaCount: 1
   image:
     repository: lukaosmani/website-yellow
     tag: v1.0.0

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-website
+  template:
+    metadata:
+      labels:
+        app: my-website
+    spec:
+      containers:
+        - name: website-blue
+          image: "{{ .Values.websiteBlue.image.repository }}:{{ .Values.websiteBlue.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.websiteBlue.service.port }}
+        - name: website-green
+          image: "{{ .Values.websiteGreen.image.repository }}:{{ .Values.websiteGreen.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.websiteGreen.service.port }}
+        - name: website-yellow
+          image: "{{ .Values.websiteYellow.image.repository }}:{{ .Values.websiteYellow.image.tag }}
+          ports:
+            - containerPort: {{ .Values.websiteYellow.service.port }}
