@@ -17,7 +17,7 @@ spec:
       project: my-project
       source:
         repoURL: 'https://github.com/lukaosmani/argocd-helm-website.git'
-        targetRevision: main
+        targetRevision: main  # Replace 'main' with your branch name
         chart: helm/website
         helm:
           valueFiles:
