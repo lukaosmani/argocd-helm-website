@@ -17,6 +17,9 @@ spec:
           image: "{{ .Values.websiteBlue.image.repository }}:{{ .Values.websiteBlue.image.tag }}"
           ports:
             - containerPort: 80
+          env:
+            - name: PORT
+              value: "80"
         - name: website-green
           image: "{{ .Values.websiteGreen.image.repository }}:{{ .Values.websiteGreen.image.tag }}"
           ports:
