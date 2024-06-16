@@ -26,13 +26,13 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
 
 {{- define "my-website.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create -}}
-{{- if .Values.serviceAccount.name -}}
+{{- if .Values.serviceAccount.create }}
+{{- if .Values.serviceAccount.name }}
 {{ .Values.serviceAccount.name }}
-{{- else -}}
+{{- else }}
 {{ printf "%s-%s" .Release.Name "serviceaccount" }}
-{{- end -}}
-{{- else -}}
+{{- end }}
+{{- else }}
 {{ "default" }}
-{{- end -}}
+{{- end }}
 {{- end -}}

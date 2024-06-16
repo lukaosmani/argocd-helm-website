@@ -1,5 +1,10 @@
 # values.yaml
 
+serviceAccount:
+  create: true
+  name: ""
+
+# Define other components as well
 websiteBlue:
   replicaCount: 1
   image:
