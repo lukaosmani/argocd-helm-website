@@ -3,13 +3,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-website-yellow
+  name: {{ include "my-website.fullname" . }}-website-yellow
   labels:
-    app: {{ .Release.Name }}-website-yellow
+    {{- include "my-website.labels" . | nindent 4 }}
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: {{ .Values.websiteYellow.service.port }}
   selector:
-    app: {{ .Release.Name }}-website-yellow
+    app: {{ include "my-website.fullname" . }}-website-yellow
