@@ -1,0 +1,17 @@
+replicaCount: 1
+
+image:
+  repository: lukaosmani/website
+  tag: blue:v1.0.0
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
