@@ -1,0 +1,17 @@
+environment:
+  name: yellow
+  color: yellow
+
+replicaCount: 3
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

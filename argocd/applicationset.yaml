@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: website-applicationset
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - environment: blue
+      - environment: green
+      - environment: yellow
+  template:
+    metadata:
+      name: '{{name}}-{{environment}}'
+    spec:
+      project: my-project
+      source:
+        repoURL: 'https://github.com/lukaosmani/argocd-helm-website.git'
+        targetRevision: HEAD
+        chart: helm/website
+        helm:
+          valueFiles:
+          - helm/website/values-{{environment}}.yaml
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{environment}}'
