@@ -23,22 +23,26 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ . }}
+          - path: /blue
             pathType: ImplementationSpecific
             backend:
               service:
                 name: website-blue
                 port:
                   number: 80
+          - path: /green
+            pathType: ImplementationSpecific
+            backend:
               service:
                 name: website-green
                 port:
                   number: 80
+          - path: /yellow
+            pathType: ImplementationSpecific
+            backend:
               service:
                 name: website-yellow
                 port:
                   number: 80
-          {{- end }}
     {{- end }}
 {{- end -}}

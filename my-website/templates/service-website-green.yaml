@@ -6,6 +6,6 @@ spec:
   type: ClusterIP
   ports:
     - port: 80
-      targetPort: {{ .Values.websiteGreen.service.port }}
+      targetPort: 8080
   selector:
-    app: website-green
+    app: my-website

@@ -16,12 +16,18 @@ spec:
         - name: website-blue
           image: "{{ .Values.websiteBlue.image.repository }}:{{ .Values.websiteBlue.image.tag }}"
           ports:
-            - containerPort: {{ .Values.websiteBlue.service.port }}
+            - containerPort: 80
         - name: website-green
           image: "{{ .Values.websiteGreen.image.repository }}:{{ .Values.websiteGreen.image.tag }}"
           ports:
-            - containerPort: {{ .Values.websiteGreen.service.port }}
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
         - name: website-yellow
           image: "{{ .Values.websiteYellow.image.repository }}:{{ .Values.websiteYellow.image.tag }}"
           ports:
-            - containerPort: {{ .Values.websiteYellow.service.port }}
+            - containerPort: 8081
+          env:
+            - name: PORT
+              value: "8081"

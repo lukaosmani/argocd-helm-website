@@ -1,13 +1,3 @@
-# values.yaml
-
-ingress:
-  enabled: true
-  annotations: {}
-  hosts:
-    - host: chart-example.local
-      paths: ["/"]
-  tls: []
-
 websiteBlue:
   image:
     repository: lukaosmani/website-blue
@@ -20,11 +10,11 @@ websiteGreen:
     repository: lukaosmani/website-green
     tag: v1.0.0
   service:
-    port: 80
+    port: 8080
 
 websiteYellow:
   image:
     repository: lukaosmani/website-yellow
     tag: v1.0.0
   service:
-    port: 80
+    port: 8081
