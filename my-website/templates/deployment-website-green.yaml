@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-green
+spec:
+  replicas: {{ .Values.websiteGreen.replicaCount }}
+  selector:
+    matchLabels:
+      app: website-green
+  template:
+    metadata:
+      labels:
+        app: website-green
+    spec:
+      containers:
+        - name: website-green
+          image: "{{ .Values.websiteGreen.image.repository }}:{{ .Values.websiteGreen.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.websiteGreen.service.port }}

@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  my-website:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-06-16T18:43:23.087265196+02:00"
+    description: A Helm chart for deploying my-website
+    digest: f92629b87e355fcfaa52eac0eda40b7ec8532b0cbe7ebe7e604a3276ac8c4dd4
+    name: my-website
+    urls:
+    - https://lukaosmani.github.io/argocd-helm-website/helm-charts/my-website-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-06-16T18:43:23.087010276+02:00"
