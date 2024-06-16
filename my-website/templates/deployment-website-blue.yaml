@@ -1,20 +1,16 @@
-# templates/deployment-website-blue.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-website-blue
-  labels:
-    app: {{ .Release.Name }}-website-blue
+  name: website-blue
 spec:
   replicas: {{ .Values.websiteBlue.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-website-blue
+      app: website-blue
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-website-blue
+        app: website-blue
     spec:
       containers:
         - name: website-blue

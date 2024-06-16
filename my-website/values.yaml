@@ -8,10 +8,6 @@ ingress:
       paths: ["/"]
   tls: []
 
-serviceAccount:
-  create: true
-  name: ""
-
 websiteBlue:
   replicaCount: 1
   image:

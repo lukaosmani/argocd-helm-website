@@ -1,20 +1,16 @@
-# templates/deployment-website-green.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-website-green
-  labels:
-    app: {{ .Release.Name }}-website-green
+  name: website-green
 spec:
   replicas: {{ .Values.websiteGreen.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-website-green
+      app: website-green
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-website-green
+        app: website-green
     spec:
       containers:
         - name: website-green

@@ -1,20 +1,16 @@
-# templates/deployment-website-yellow.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-website-yellow
-  labels:
-    app: {{ .Release.Name }}-website-yellow
+  name: website-yellow
 spec:
   replicas: {{ .Values.websiteYellow.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-website-yellow
+      app: website-yellow
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-website-yellow
+        app: website-yellow
     spec:
       containers:
         - name: website-yellow

@@ -1,15 +1,11 @@
-# templates/service-website-yellow.yaml
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "my-website.fullname" . }}-website-yellow
-  labels:
-    {{- include "my-website.labels" . | nindent 4 }}
+  name: website-yellow
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: {{ .Values.websiteYellow.service.port }}
   selector:
-    app: {{ include "my-website.fullname" . }}-website-yellow
+    app: website-yellow
