@@ -22,6 +22,6 @@ spec:
           ports:
             - containerPort: {{ .Values.websiteGreen.service.port }}
         - name: website-yellow
-          image: "{{ .Values.websiteYellow.image.repository }}:{{ .Values.websiteYellow.image.tag }}
+          image: "{{ .Values.websiteYellow.image.repository }}:{{ .Values.websiteYellow.image.tag }}"
           ports:
             - containerPort: {{ .Values.websiteYellow.service.port }}
