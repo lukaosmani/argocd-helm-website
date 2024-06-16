@@ -1,5 +1,3 @@
-# values.yaml
-
 ingress:
   enabled: true
   annotations: {}
