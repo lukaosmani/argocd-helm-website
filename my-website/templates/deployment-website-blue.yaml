@@ -1,0 +1,23 @@
+# templates/deployment-website-blue.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-website-blue
+  labels:
+    app: {{ .Release.Name }}-website-blue
+spec:
+  replicas: {{ .Values.websiteBlue.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-website-blue
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-website-blue
+    spec:
+      containers:
+        - name: website-blue
+          image: "{{ .Values.websiteBlue.image.repository }}:{{ .Values.websiteBlue.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.websiteBlue.service.port }}

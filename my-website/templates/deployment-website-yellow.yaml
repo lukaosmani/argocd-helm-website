@@ -1,0 +1,23 @@
+# templates/deployment-website-yellow.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-website-yellow
+  labels:
+    app: {{ .Release.Name }}-website-yellow
+spec:
+  replicas: {{ .Values.websiteYellow.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-website-yellow
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-website-yellow
+    spec:
+      containers:
+        - name: website-yellow
+          image: "{{ .Values.websiteYellow.image.repository }}:{{ .Values.websiteYellow.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.websiteYellow.service.port }}
