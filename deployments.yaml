@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-blue-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website-blue
+  template:
+    metadata:
+      labels:
+        app: website-blue
+    spec:
+      containers:
+      - name: website-blue
+        image: lukaosmani/website-blue:v1.0.0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-green-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website-green
+  template:
+    metadata:
+      labels:
+        app: website-green
+    spec:
+      containers:
+      - name: website-green
+        image: lukaosmani/website-green:v1.0.0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-yellow-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website-yellow
+  template:
+    metadata:
+      labels:
+        app: website-yellow
+    spec:
+      containers:
+      - name: website-yellow
+        image: lukaosmani/website-yellow:v1.0.0

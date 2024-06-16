@@ -1,0 +1,17 @@
+replicaCount: 1
+
+image:
+  repository: lukaosmani
+  pullPolicy: IfNotPresent
+
+app1:
+  name: website-blue
+  tag: "v1.0.0"
+
+app2:
+  name: website-green
+  tag: "v1.0.0"
+
+app3:
+  name: website-yellow
+  tag: "v1.0.0"
