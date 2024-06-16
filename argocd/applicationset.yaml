@@ -12,7 +12,7 @@ spec:
       - environment: yellow
   template:
     metadata:
-      name: '{{name}}-{{environment}}'
+      name: '{{environment}}-website'
     spec:
       project: my-project
       source:
