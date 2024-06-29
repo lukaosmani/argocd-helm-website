@@ -1,0 +1,7 @@
+service:
+  name: website-yellow-service
+  port: 80
+deployment:
+  name: website-yellow
+  replicas: 2
+  containerPort: 80

@@ -1,0 +1,7 @@
+service:
+  name: website-green-service
+  port: 80
+deployment:
+  name: website-green
+  replicas: 2
+  containerPort: 80

@@ -1,0 +1,7 @@
+service:
+  name: website-blue-service
+  port: 80
+deployment:
+  name: website-blue
+  replicas: 2
+  containerPort: 80

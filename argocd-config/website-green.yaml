@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: website-green
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/lukaosmani/argocd-helm-website.git'
+    targetRevision: HEAD
+    path: my-website
+    helm:
+      valueFiles:
+        - values-green.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}
