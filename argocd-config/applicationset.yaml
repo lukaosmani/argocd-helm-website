@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: website-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: website-blue
+            valuesFile: values-blue.yaml
+          - name: website-green
+            valuesFile: values-green.yaml
+          - name: website-yellow
+            valuesFile: values-yellow.yaml
+  template:
+    metadata:
+      name: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/lukaosmani/argocd-helm-website.git'
+        targetRevision: HEAD
+        path: my-website
+        helm:
+          valueFiles:
+            - '{{valuesFile}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
