@@ -1,7 +1,8 @@
+replicaCount: 1
+websiteColor: blue
+image:
+  repository: my-repo/my-website
+  tag: 0.1.0
 service:
-  name: website-blue-service
+  type: ClusterIP
   port: 80
-deployment:
-  name: website-blue
-  replicas: 2
-  containerPort: 80
