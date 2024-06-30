@@ -1,1 +1,7 @@
 websiteColor: yellow
+image:
+  repository: nginx
+  tag: latest
+service:
+  type: ClusterIP
+  port: 80
