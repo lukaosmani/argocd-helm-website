@@ -1,10 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
-  labels:
-    app: {{ .Release.Name }}
-    websiteColor: {{ .Values.websiteColor }}
+  name: {{ .Release.Name }}-{{ .Values.websiteColor }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

@@ -2,12 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: website-blue
+  namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-repo/argocd-helm-website'
+    repoURL: 'https://github.com/yourusername/argocd-helm-website.git'
     targetRevision: HEAD
-    chart: my-website
+    path: my-website
     helm:
       valueFiles:
         - values-blue.yaml
@@ -15,6 +16,6 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
-    automated:
+    automated: 
       prune: true
       selfHeal: true
