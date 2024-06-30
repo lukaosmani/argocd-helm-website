@@ -7,7 +7,7 @@ metadata:
     websiteColor: {{ .Values.websiteColor }}
 spec:
   rules:
-    - host: {{ .Values.websiteColor }}.example.com
+    - host: {{ .Values.websiteColor }}.luka.com
       http:
         paths:
           - path: /

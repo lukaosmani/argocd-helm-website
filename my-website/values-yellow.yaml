@@ -1,7 +1,7 @@
 websiteColor: yellow
 replicaCount: 1
 image:
-  repository: lukaosmani/website-yellow  # Specific image for yellow website
+  repository: lukaosmani/website-yellow
   tag: v1.0.0
 service:
   type: ClusterIP

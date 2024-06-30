@@ -1,7 +1,7 @@
 websiteColor: green
 replicaCount: 1
 image:
-  repository: lukaosmani/website-green  # Specific image for green website
+  repository: lukaosmani/website-green
   tag: v1.0.0
 service:
   type: ClusterIP

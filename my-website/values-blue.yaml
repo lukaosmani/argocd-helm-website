@@ -1,7 +1,7 @@
 websiteColor: blue
 replicaCount: 1
 image:
-  repository: lukaosmani/website-blue  # Specific image for blue website
+  repository: lukaosmani/website-blue
   tag: v1.0.0
 service:
   type: ClusterIP
