@@ -5,6 +5,8 @@ metadata:
   labels:
     app: {{ .Release.Name }}
     websiteColor: {{ .Values.websiteColor }}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
     - host: {{ .Values.websiteColor }}.luka.com
