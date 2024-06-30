@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-{{ .Values.websiteColor }}
+  labels:
+    app: {{ .Release.Name }}
+    websiteColor: {{ .Values.websiteColor }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -18,4 +21,4 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: {{ .Values.service.port }}
+            - containerPort: 80

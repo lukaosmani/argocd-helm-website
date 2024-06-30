@@ -1,11 +1,8 @@
 replicaCount: 1
-
 image:
-  repository: nginx
+  repository: nginx  # Default image repository
   tag: stable
-
 service:
   type: ClusterIP
   port: 80
-
 websiteColor: default

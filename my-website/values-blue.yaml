@@ -1,7 +1,8 @@
 websiteColor: blue
+replicaCount: 1
 image:
-  repository: nginx
-  tag: latest
+  repository: lukaosmani/website-blue  # Specific image for blue website
+  tag: v1.0.0
 service:
   type: ClusterIP
   port: 80
