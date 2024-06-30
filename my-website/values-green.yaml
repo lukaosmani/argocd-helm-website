@@ -1,8 +1,10 @@
 replicaCount: 1
 websiteColor: green
+
 image:
-  repository: my-repo/my-website
-  tag: 0.1.0
+  repository: nginx
+  tag: latest
+
 service:
   type: ClusterIP
   port: 80
