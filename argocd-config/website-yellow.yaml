@@ -13,7 +13,9 @@ spec:
       valueFiles:
         - values-yellow.yaml
   destination:
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
