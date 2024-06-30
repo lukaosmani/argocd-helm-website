@@ -6,7 +6,7 @@ metadata:
 spec:
   description: My project
   sourceRepos:
-    - 'https://github.com/lukaosmani/argocd-helm-website.git'
+    - '*'
   destinations:
     - namespace: '*'
       server: https://kubernetes.default.svc
